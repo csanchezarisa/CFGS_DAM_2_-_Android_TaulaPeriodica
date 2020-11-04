@@ -8,16 +8,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.taulaperidica.elements.AdaptadorElement;
+import com.example.taulaperidica.elements.Element;
+
 public class MainActivity extends AppCompatActivity {
+
+    public AdaptadorElement adaptador;
+    public Element[] elements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Es personalitza el títol de la actionbar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Taula Periòdica");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        adaptador = new AdaptadorElement(this, elements);
 
 
     }
