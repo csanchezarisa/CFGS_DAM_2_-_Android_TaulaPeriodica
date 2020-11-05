@@ -21,4 +21,33 @@ public class Element {
 
     }
 
+
+    // GETTERS
+    public String getSimbol() {
+        return simbol;
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public int getNumeroAtomic() {
+        return numeroAtomic;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getMassaAtomica() {
+        return massaAtomica;
+    }
+
+    public String getConfiguracioElectronica() {
+        return configuracioElectronica;
+    }
+
+    public String getEstatPredeterminat() {
+        return estatPredeterminat;
+    }
 }
