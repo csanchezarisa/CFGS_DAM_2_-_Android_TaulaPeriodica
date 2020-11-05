@@ -41,27 +41,27 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
         textPerEditar.setText(element.getSimbol());
 
         // Es canvia el color del símbol segons l'estat predeterminat de l'element
-        int color = Color.BLACK;
+        int colorSimbol = Color.BLACK;
 
         switch (element.getEstatPredeterminat()) {
             case "sòlid":
-                color = Color.BLACK;
+                colorSimbol = Color.BLACK;
                 break;
 
             case "líquid":
-                color = Color.BLUE;
+                colorSimbol = Color.BLUE;
                 break;
 
             case "sintètic":
-                color = Color.RED;
+                colorSimbol = Color.RED;
                 break;
 
             case "gas":
-                color = Color.GREEN;
+                colorSimbol = Color.GREEN;
                 break;
         }
 
-        textPerEditar.setTextColor(color);
+        textPerEditar.setTextColor(colorSimbol);
 
         // Modifica la tercela fila, la del pes atòmic
         textPerEditar = (TextView) fila.findViewById(R.id.pesAtomic);
@@ -70,6 +70,56 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
         // Modifica la quarta fila, la del nom de l'element
         textPerEditar = (TextView) fila.findViewById(R.id.nomElement);
         textPerEditar.setText(element.getNom());
+
+        // Canviar el color de fons de cada elements segons el seu tipus
+        String colorFons = "";
+
+        switch (element.getTipus()) {
+            case "no metàl·lic":
+                colorFons = "#a0ffa0";
+                break;
+
+            case "gas noble":
+                colorFons = "#c0ffff";
+                break;
+
+            case "metall alcalí":
+                colorFons = "#ff6666";
+                break;
+
+            case "metall alcalino-terrós":
+                colorFons = "#ffdead";
+                break;
+
+            case "metal·loide":
+                colorFons = "#cccc99";
+                break;
+
+            case "halògen":
+                colorFons = "#ffff99";
+                break;
+
+            case "actinoide":
+                colorFons = "#ff99cc";
+                break;
+
+            case "metall de transició":
+                colorFons = "#ffc0c0";
+                break;
+
+            case "lantanoide":
+                colorFons = "#ffbfff";
+                break;
+
+            case "metall post-transició":
+                colorFons = "#cccccc";
+                break;
+
+            default:
+                colorFons = "#ffffff";
+        }
+
+        fila.setBackgroundColor(Color.parseColor(colorFons.toUpperCase()));
 
         return fila;
     }
