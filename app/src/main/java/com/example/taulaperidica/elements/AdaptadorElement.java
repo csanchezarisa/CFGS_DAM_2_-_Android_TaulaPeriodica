@@ -1,6 +1,7 @@
 package com.example.taulaperidica.elements;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,29 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
         // Modifica la segona fila, la del símbol de l'element
         textPerEditar = (TextView) fila.findViewById(R.id.simbol);
         textPerEditar.setText(element.getSimbol());
+
+        // Es canvia el color del símbol segons l'estat predeterminat de l'element
+        int color = Color.BLACK;
+
+        switch (element.getEstatPredeterminat()) {
+            case "sòlid":
+                color = Color.BLACK;
+                break;
+
+            case "líquid":
+                color = Color.BLUE;
+                break;
+
+            case "sintètic":
+                color = Color.RED;
+                break;
+
+            case "gas":
+                color = Color.GREEN;
+                break;
+        }
+
+        textPerEditar.setTextColor(color);
 
         // Modifica la tercela fila, la del pes atòmic
         textPerEditar = (TextView) fila.findViewById(R.id.pesAtomic);

@@ -12,13 +12,17 @@ import android.widget.ListView;
 import com.example.taulaperidica.elements.AdaptadorElement;
 import com.example.taulaperidica.elements.Element;
 
+import com.example.taulaperidica.elements.Element;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     public AdaptadorElement adaptador;
     public Element[] elements = new Element[] {
             new Element("H", 1, "no metàl·lic", "Hydrogen", "1.00794(4) u", "1s1", "gas"),
             new Element("He", 2, "gas noble", "Helium", "4.002602(2) u", "1s2", "gas"),
-            new Element("Li", 3, "alkali metal", "Lithium", "6.941(2) u", "[He] 2s1", "sòlid"),
+            new Element("Li", 3, "metall alcalí", "Lithium", "6.941(2) u", "[He] 2s1", "sòlid"),
             new Element("Be", 4, "metall alcalino-terrós", "Beryllium", "9.012182(3) u", "[He] 2s2", "sòlid"),
             new Element("B", 5, "metaloide", "Boron", "10.811(7) u", "[He] 2s2 2p1", "sòlid"),
             new Element("C", 6, "no metàl·lic", "Carbon", "12.0107(8) u", "[He] 2s2 2p2", "sòlid"),
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             new Element("O", 8, "no metàl·lic", "Oxygen", "15.9994(3) u", "[He] 2s2 2p4", "gas"),
             new Element("F", 9, "halògen", "Fluorine", "18.9984032(5) u", "[He] 2s2 2p5", "gas"),
             new Element("Ne", 10, "gas noble", "Neon", "20.1797(6) u", "[He] 2s2 2p6", "gas"),
-            new Element("Na", 11, "alkali metal", "Sodium", "22.98976928(2) u", "[Ne] 3s1", "sòlid"),
+            new Element("Na", 11, "metall alcalí", "Sodium", "22.98976928(2) u", "[Ne] 3s1", "sòlid"),
             new Element("Mg", 12, "metall alcalino-terrós", "Magnesium", "24.3050(6) u", "[Ne] 3s2", "sòlid"),
             new Element("Al", 13, "metall", "Aluminum", "26.9815386(8) u", "[Ne] 3s2 3p1", "sòlid"),
             new Element("Si", 14, "metaloide", "Silicon", "28.0855(3) u", "[Ne] 3s2 3p2", "sòlid"),
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             new Element("S", 16, "no metàl·lic", "Sulfur", "32.065(5) u", "[Ne] 3s2 3p4", "sòlid"),
             new Element("Cl", 17, "halògen", "Chlorine", "35.453(2) u", "[Ne] 3s2 3p5", "gas"),
             new Element("Ar", 18, "gas noble", "Argon", "39.948(1) u", "[Ne] 3s2 3p6", "gas"),
-            new Element("K", 19, "alkali metal", "Potassium", "39.0983(1) u", "[Ar] 4s1", "sòlid"),
+            new Element("K", 19, "metall alcalí", "Potassium", "39.0983(1) u", "[Ar] 4s1", "sòlid"),
             new Element("Ca", 20, "metall alcalino-terrós", "Calcium", "40.078(4) u", "[Ar] 4s2", "sòlid"),
             new Element("Sc", 21, "metall de transició", "Scandium", "44.955912(6) u", "[Ar] 3d1 4s2", "sòlid"),
             new Element("Ti", 22, "metall de transició", "Titanium", "47.867(1) u", "[Ar] 3d2 4s2", "sòlid"),
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             new Element("Se", 34, "no metàl·lic", "Selenium", "78.96(3) u", "[Ar] 3d10 4s2 4p4", "sòlid"),
             new Element("Br", 35, "halògen", "Bromine", "79.904(1) u", "[Ar] 3d10 4s2 4p5", "líquid"),
             new Element("Kr", 36, "gas noble", "Krypton", "83.798(2) u", "[Ar] 3d10 4s2 4p6", "gas"),
-            new Element("Rb", 37, "alkali metal", "Rubidium", "85.4678(3) u", "[Kr] 5s1", "sòlid"),
+            new Element("Rb", 37, "metall alcalí", "Rubidium", "85.4678(3) u", "[Kr] 5s1", "sòlid"),
             new Element("Sr", 38, "metall alcalino-terrós", "Strontium", "87.62(1) u", "[Kr] 5s2", "sòlid"),
             new Element("Y", 39, "metall de transició", "Yttrium", "88.90585(2) u", "[Kr] 4d1 5s2", "sòlid"),
             new Element("Zr", 40, "metall de transició", "Zirconium", "91.224(2) u", "[Kr] 4d2 5s2", "sòlid"),
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             new Element("Te", 52, "metaloide", "Tellurium", "127.60(3) u", "[Kr] 4d10 5s2 5p4", "sòlid"),
             new Element("I", 53, "halògen", "Iodine", "126.90447(3) u", "[Kr] 4d10 5s2 5p5", "sòlid"),
             new Element("Xe", 54, "gas noble", "Xenon", "131.293(6) u", "[Kr] 4d10 5s2 5p6", "gas"),
-            new Element("Cs", 55, "alkali metal", "Cesium", "132.9054519(2) u", "[Xe] 6s1", "sòlid"),
+            new Element("Cs", 55, "metall alcalí", "Cesium", "132.9054519(2) u", "[Xe] 6s1", "sòlid"),
             new Element("Ba", 56, "metall alcalino-terrós", "Barium", "137.327(7) u", "[Xe] 6s2", "sòlid"),
             new Element("La", 57, "lantanoide", "Lanthanum", "138.90547(7) u", "[Xe] 5d1 6s2", "sòlid"),
             new Element("Ce", 58, "lantanoide", "Cerium", "140.116(1) u", "[Xe] 4f1 5d1 6s2", "sòlid"),
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             new Element("Po", 84, "metaloide", "Polonium", "209 u", "[Xe] 4f14 5d10 6s2 6p4", "sòlid"),
             new Element("At", 85, "halògen", "Astatine", "210 u", "[Xe] 4f14 5d10 6s2 6p5", "sòlid"),
             new Element("Rn", 86, "gas noble", "Radon", "222 u", "[Xe] 4f14 5d10 6s2 6p6", "gas"),
-            new Element("Fr", 87, "alkali metal", "Francium", "223 u", "[Rn] 7s1", "sòlid"),
+            new Element("Fr", 87, "metall alcalí", "Francium", "223 u", "[Rn] 7s1", "sòlid"),
             new Element("Ra", 88, "metall alcalino-terrós", "Radium", "226 u", "[Rn] 7s2", "sòlid"),
             new Element("Ac", 89, "actinoide", "Actinium", "227 u", "[Rn] 6d1 7s2", "sòlid"),
             new Element("Th", 90, "actinoide", "Thorium", "232.03806(2) u", "[Rn] 6d2 7s2", "sòlid"),
@@ -115,25 +119,25 @@ public class MainActivity extends AppCompatActivity {
             new Element("Bk", 97, "actinoide", "Berkelium", "247 u", "[Rn] 5f9 7s2", "sòlid"),
             new Element("Cf", 98, "actinoide", "Californium", "251 u", "[Rn] 5f10 7s2", "sòlid"),
             new Element("Es", 99, "actinoide", "Einsteinium", "252 u", "[Rn] 5f11 7s2", "sòlid"),
-            new Element("Fm", 100, "actinoide", "Fermium", "257 u", "[Rn] 5f12 7s2", "desconegut"),
-            new Element("Md", 101, "actinoide", "Mendelevium", "258 u", "[Rn] 5f13 7s2", "desconegut"),
-            new Element("No", 102, "actinoide", "Nobelium", "259 u", "[Rn] 5f14 7s2", "desconegut"),
-            new Element("Lr", 103, "metall de transició", "Lawrencium", "262 u", "[Rn] 5f14 7s2 7p1", "desconegut"),
-            new Element("Rf", 104, "metall de transició", "Rutherfordium", "267 u", "[Rn] 5f14 6d2 7s2", "desconegut"),
-            new Element("Db", 105, "metall de transició", "Dubnium", "268 u", "[Rn] 5f14 6d3 7s2", "desconegut"),
-            new Element("Sg", 106, "metall de transició", "Seaborgium", "271 u", "[Rn] 5f14 6d4 7s2", "desconegut"),
-            new Element("Bh", 107, "metall de transició", "Bohrium", "272 u", "[Rn] 5f14 6d5 7s2", "desconegut"),
-            new Element("Hs", 108, "metall de transició", "Hassium", "270 u", "[Rn] 5f14 6d6 7s2", "desconegut"),
-            new Element("Mt", 109, "metall de transició", "Meitnerium", "276 u", "[Rn] 5f14 6d7 7s2", "desconegut"),
-            new Element("Ds", 110, "metall de transició", "Darmstadtium", "281 u", "[Rn] 5f14 6d9 7s1", "desconegut"),
-            new Element("Rg", 111, "metall de transició", "Roentgenium", "280 u", "[Rn] 5f14 6d10 7s1", "desconegut"),
-            new Element("Cn", 112, "metall de transició", "Copernicium", "285 u", "[Rn] 5f14 6d10 7s2", "desconegut"),
-            new Element("Nh", 113, "metall post-transició", "Nihonium", "284 u", "[Rn] 5f14 6d10 7s2 7p1", "desconegut"),
-            new Element("Fl", 114, "metall post-transició", "Flerovium", "289 u", "[Rn] 5f14 6d10 7s2 7p2", "desconegut"),
-            new Element("Mc", 115, "metall post-transició", "Moscovium", "288 u", "[Rn] 5f14 6d10 7s2 7p3", "desconegut"),
-            new Element("Lv", 116, "metall post-transició", "Livermorium", "293 u", "[Rn] 5f14 6d10 7s2 7p4", "desconegut"),
-            new Element("Ts", 117, "metall post-transició", "Tennessine", "294 u", "[Rn] 5f14 6d10 7s2 7p5", "desconegut"),
-            new Element("Og", 118, "gas noble", "Oganesson", "294 u", "[Rn] 5f14 6d10 7s2 7p6", "desconegut"),
+            new Element("Fm", 100, "actinoide", "Fermium", "257 u", "[Rn] 5f12 7s2", "sintètic"),
+            new Element("Md", 101, "actinoide", "Mendelevium", "258 u", "[Rn] 5f13 7s2", "sintètic"),
+            new Element("No", 102, "actinoide", "Nobelium", "259 u", "[Rn] 5f14 7s2", "sintètic"),
+            new Element("Lr", 103, "metall de transició", "Lawrencium", "262 u", "[Rn] 5f14 7s2 7p1", "sintètic"),
+            new Element("Rf", 104, "metall de transició", "Rutherfordium", "267 u", "[Rn] 5f14 6d2 7s2", "sintètic"),
+            new Element("Db", 105, "metall de transició", "Dubnium", "268 u", "[Rn] 5f14 6d3 7s2", "sintètic"),
+            new Element("Sg", 106, "metall de transició", "Seaborgium", "271 u", "[Rn] 5f14 6d4 7s2", "sintètic"),
+            new Element("Bh", 107, "metall de transició", "Bohrium", "272 u", "[Rn] 5f14 6d5 7s2", "sintètic"),
+            new Element("Hs", 108, "metall de transició", "Hassium", "270 u", "[Rn] 5f14 6d6 7s2", "sintètic"),
+            new Element("Mt", 109, "metall de transició", "Meitnerium", "276 u", "[Rn] 5f14 6d7 7s2", "sintètic"),
+            new Element("Ds", 110, "metall de transició", "Darmstadtium", "281 u", "[Rn] 5f14 6d9 7s1", "sintètic"),
+            new Element("Rg", 111, "metall de transició", "Roentgenium", "280 u", "[Rn] 5f14 6d10 7s1", "sintètic"),
+            new Element("Cn", 112, "metall de transició", "Copernicium", "285 u", "[Rn] 5f14 6d10 7s2", "sintètic"),
+            new Element("Nh", 113, "metall post-transició", "Nihonium", "284 u", "[Rn] 5f14 6d10 7s2 7p1", "sintètic"),
+            new Element("Fl", 114, "metall post-transició", "Flerovium", "289 u", "[Rn] 5f14 6d10 7s2 7p2", "sintètic"),
+            new Element("Mc", 115, "metall post-transició", "Moscovium", "288 u", "[Rn] 5f14 6d10 7s2 7p3", "sintètic"),
+            new Element("Lv", 116, "metall post-transició", "Livermorium", "293 u", "[Rn] 5f14 6d10 7s2 7p4", "sintètic"),
+            new Element("Ts", 117, "metall post-transició", "Tennessine", "294 u", "[Rn] 5f14 6d10 7s2 7p5", "sintètic"),
+            new Element("Og", 118, "gas noble", "Oganesson", "294 u", "[Rn] 5f14 6d10 7s2 7p6", "sintètic"),
     };
 
     @Override
@@ -169,21 +173,56 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.totsButton:
+                adaptador = new AdaptadorElement(this, elements);
+
+                ListView llista = (ListView) findViewById(R.id.elementList);
+                llista.setAdapter(adaptador);
+
+                adaptador.setNotifyOnChange(true);
                 return true;
 
             case R.id.solidsButton:
+                filtrarLlistat("sòlid");
                 return true;
 
             case R.id.gasosButton:
+                filtrarLlistat("gas");
                 return true;
 
             case R.id.liquidsButton:
+                filtrarLlistat("líquid");
                 return true;
 
             case R.id.sinteticsButton:
+                filtrarLlistat("sintètic");
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void filtrarLlistat(String filtre) {
+        ArrayList<Element> llistatElementsFiltrats = new ArrayList<Element>();
+
+        for (Element element : elements) {
+            if (element.getEstatPredeterminat().equals(filtre)) {
+                llistatElementsFiltrats.add(element);
+            }
+        }
+
+        Element[] elementsFiltrats = new Element[llistatElementsFiltrats.size()];
+
+        for (int index = 0; index < llistatElementsFiltrats.size(); index++) {
+            elementsFiltrats[index] = llistatElementsFiltrats.get(index);
+        }
+
+
+        adaptador = new AdaptadorElement(this, elementsFiltrats);
+
+        ListView llista = (ListView) findViewById(R.id.elementList);
+        llista.setAdapter(adaptador);
+
+        adaptador.setNotifyOnChange(true);
+        
     }
 }
