@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.taulaperidica.elements.AdaptadorElement;
@@ -18,8 +21,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Adaptador públic per poder accedir des d'altres classes
     public AdaptadorElement adaptador;
-    public Element[] elements = new Element[] {
+
+    // Array amb tots els elements definits. Aquest no s'utilitza en producció, només és un origen de dades
+    private Element[] elementsOrigenDades = new Element[] {
             new Element("H", 1, "no metàl·lic", "Hydrogen", "1.00794(4) u", "1s1", "gas"),
             new Element("He", 2, "gas noble", "Helium", "4.002602(2) u", "1s2", "gas"),
             new Element("Li", 3, "metall alcalí", "Lithium", "6.941(2) u", "[He] 2s1", "sòlid"),
@@ -140,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
             new Element("Og", 118, "gas noble", "Oganesson", "294 u", "[Rn] 5f14 6d10 7s2 7p6", "sintètic"),
     };
 
+    // Aquest Array contindrà els elements que s'han de mostrar per pantalla. És el que es troba en producció i s'abasteix amb la informació de l'Array de la part superior.
+    public Element[] elements;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,12 +158,49 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Taula Periòdica");
 
+        // Es preparar l'array de producció amb totes les dades
+        elements = new Element[elementsOrigenDades.length];
+
+        for (int index = 0; index < elementsOrigenDades.length; index++) {
+            elements[index] = elementsOrigenDades[index];
+        }
+
         // Es prepara l'adaptador personalitzat per mostrar els elements
         adaptador = new AdaptadorElement(this, elements);
 
         // S'assigna l'adaptador personalitzat a la llista del layout principal
         ListView llista = (ListView) findViewById(R.id.elementList);
         llista.setAdapter(adaptador);
+
+        llista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Es crea una variable del tipus Element amb l'element seleccionat per treballar més cómodament
+                Element element = elements[position];
+
+                // Es crea un Bundle per passar les dades a la següent Activity
+                Bundle bundleAmbElement = new Bundle();
+
+                // Es carrega el bundle amb totes les dades de l'element
+                bundleAmbElement.putString("simbol", element.getSimbol());
+                bundleAmbElement.putString("tipus", element.getTipus());
+                bundleAmbElement.putString("numeroAtomic", String.valueOf(element.getNumeroAtomic()));
+                bundleAmbElement.putString("nom", element.getNom());
+                bundleAmbElement.putString("massaAtomica", element.getMassaAtomica());
+                bundleAmbElement.putString("configuracioElectronica", element.getConfiguracioElectronica());
+                bundleAmbElement.putString("estatPredeterminat", element.getEstatPredeterminat());
+
+                // Es crea un nou Intent per obrir la nova activity
+                Intent intent = new Intent(getApplicationContext(), ActivityDadesElement.class);
+
+                // Es carrega l'Intent amb les dades del Bundle
+                intent.putExtras(bundleAmbElement);
+
+                // S'inicia la nova Activity
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -173,12 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.totsButton:
-                adaptador = new AdaptadorElement(this, elements);
-
-                ListView llista = (ListView) findViewById(R.id.elementList);
-                llista.setAdapter(adaptador);
-
-                adaptador.setNotifyOnChange(true);
+                noFiltrarLlistat();
                 return true;
 
             case R.id.solidsButton:
@@ -201,28 +242,57 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // S'encarrega d'abastir l'Array de producció amb totes les dades
+    public void noFiltrarLlistat() {
+        elements = new Element[elementsOrigenDades.length];
+
+        // S'agafen tots els elements d'origen i es passen a l'Array en producció
+        for (int index = 0; index < elementsOrigenDades.length; index++) {
+            elements[index] = elementsOrigenDades[index];
+        }
+
+        // Es prepara de nou l'adaptador per mantenir els canvis
+        adaptador = new AdaptadorElement(this, elements);
+
+        // S'assigna l'adaptador personalitzat a la llista del layout principal
+        ListView llista = (ListView) findViewById(R.id.elementList);
+        llista.setAdapter(adaptador);
+
+        // Es notifiquen els canvis
+        adaptador.notifyDataSetChanged();
+    }
+
+    // S'encarrega de canviar els elements que es troben a l'array de producció segons el filtre escollit
     public void filtrarLlistat(String filtre) {
         ArrayList<Element> llistatElementsFiltrats = new ArrayList<Element>();
 
-        for (Element element : elements) {
+        // Es busquen tots els elements que són iguals al filtre desitjat i es passen a un ArrayList
+        for (Element element : elementsOrigenDades) {
             if (element.getEstatPredeterminat().equals(filtre)) {
                 llistatElementsFiltrats.add(element);
             }
         }
 
-        Element[] elementsFiltrats = new Element[llistatElementsFiltrats.size()];
+        // Es crea de nou l'array d'elements amb la mateixa mida que l'ArrayList
+        this.elements = new Element[llistatElementsFiltrats.size()];
 
+        // Es passen els elements de l'ArrayList a l'Array d'elements en producció
         for (int index = 0; index < llistatElementsFiltrats.size(); index++) {
-            elementsFiltrats[index] = llistatElementsFiltrats.get(index);
+            elements[index] = llistatElementsFiltrats.get(index);
         }
 
+        // S'allibera la memoria que ocupa la llista
+        llistatElementsFiltrats.clear();
 
-        adaptador = new AdaptadorElement(this, elementsFiltrats);
+        // Es prepara de nou l'adaptador per mantenir els canvis
+        adaptador = new AdaptadorElement(this, elements);
 
+        // S'assigna l'adaptador personalitzat a la llista del layout principal
         ListView llista = (ListView) findViewById(R.id.elementList);
         llista.setAdapter(adaptador);
 
-        adaptador.setNotifyOnChange(true);
+        // Es notifiquen els canvis
+        this.adaptador.notifyDataSetChanged();
         
     }
 }
