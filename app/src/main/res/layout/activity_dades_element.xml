@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".ActivityDadesElement">
 
+    <TextView
+        android:id="@+id/informacioSimbolElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="simbolElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioNomElement" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/separadorHoritzontal"
         android:layout_width="wrap_content"
@@ -43,24 +53,24 @@
         app:layout_constraintTop_toBottomOf="@+id/informacioGeneral" />
 
     <TextView
-        android:id="@+id/titolNom2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Nom:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/informacioGeneral" />
-
-    <TextView
         android:id="@+id/informacioNomElement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:text="nomElement"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="@+id/separadorVertical"
         app:layout_constraintTop_toBottomOf="@+id/informacioGeneral" />
+
+    <TextView
+        android:id="@+id/titolSimbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Símbol:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolNom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

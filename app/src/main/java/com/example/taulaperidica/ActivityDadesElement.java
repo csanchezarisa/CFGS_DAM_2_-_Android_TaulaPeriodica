@@ -93,6 +93,8 @@ public class ActivityDadesElement extends AppCompatActivity {
 
         // Es personalitza l'action bar
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
         // Es canvia el títol i es possa en color negre
         actionBar.setTitle(Html.fromHtml("<font color = \"black\"> Element " + element.getString("nom") + " - " + element.getString("simbol") + "</font>"));
         // Es canvia el color de fons
@@ -101,6 +103,9 @@ public class ActivityDadesElement extends AppCompatActivity {
         // Es modifiquen les parts del layout
         TextView textPerEditar = (TextView) findViewById(R.id.informacioNomElement);
         textPerEditar.setText(element.getString("nom"));
+
+        textPerEditar = (TextView) findViewById(R.id.informacioSimbolElement);
+        textPerEditar.setText(element.getString("simbol"));
 
     }
 
