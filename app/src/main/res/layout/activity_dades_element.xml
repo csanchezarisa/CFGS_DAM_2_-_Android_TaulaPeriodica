@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ActivityDadesElement">
 
-    <TextView
-        android:id="@+id/informacioSimbolElement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="simbolElement"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
-        app:layout_constraintTop_toBottomOf="@+id/informacioNomElement" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/separadorHoritzontal"
         android:layout_width="wrap_content"
@@ -72,5 +62,132 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titolNom" />
+
+    <TextView
+        android:id="@+id/informacioSimbolElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="simbolElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioNomElement" />
+
+    <TextView
+        android:id="@+id/titolNumAtomic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Número:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolSimbol" />
+
+    <TextView
+        android:id="@+id/informacioNumeroElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="numElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioSimbolElement" />
+
+    <TextView
+        android:id="@+id/titolSerieQuimica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Sèrie Química:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolNumAtomic" />
+
+    <TextView
+        android:id="@+id/informacioSerieElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="serieElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioNumeroElement" />
+
+    <TextView
+        android:id="@+id/titolMassaElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Massa:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolSerieQuimica" />
+
+    <TextView
+        android:id="@+id/informacioMassaElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="massaElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioSerieElement" />
+
+    <TextView
+        android:id="@+id/titolConfiguracioElectronica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Configuració:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolMassaElement" />
+
+    <TextView
+        android:id="@+id/informacioConfiguracioElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="configuracioElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioMassaElement" />
+
+    <TextView
+        android:id="@+id/titolEstatElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Estat:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolConfiguracioElectronica" />
+
+    <TextView
+        android:id="@+id/informacioEstatElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="estatElement"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/separadorVertical"
+        app:layout_constraintTop_toBottomOf="@+id/informacioConfiguracioElement" />
+
+    <Button
+        android:id="@+id/btnCompartir"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/boto_rodo"
+        app:backgroundTint="#000000"
+        app:icon="@android:drawable/ic_menu_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

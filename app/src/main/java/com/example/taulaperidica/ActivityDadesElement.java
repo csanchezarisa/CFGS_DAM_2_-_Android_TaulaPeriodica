@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -94,11 +95,14 @@ public class ActivityDadesElement extends AppCompatActivity {
         // Es personalitza l'action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+
         // Es canvia el títol i es possa en color negre
         actionBar.setTitle(Html.fromHtml("<font color = \"black\"> Element " + element.getString("nom") + " - " + element.getString("simbol") + "</font>"));
         // Es canvia el color de fons
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(colorFons)));
+        Button btnCompartir = (Button) findViewById(R.id.btnCompartir);
+        btnCompartir.setBackgroundColor(Color.parseColor(colorFons));
+        btnCompartir.setBackground(new ColorDrawable(R.drawable.boto_rodo));
 
         // Es modifiquen les parts del layout
         TextView textPerEditar = (TextView) findViewById(R.id.informacioNomElement);
@@ -107,6 +111,20 @@ public class ActivityDadesElement extends AppCompatActivity {
         textPerEditar = (TextView) findViewById(R.id.informacioSimbolElement);
         textPerEditar.setText(element.getString("simbol"));
 
+        textPerEditar = (TextView) findViewById(R.id.informacioNumeroElement);
+        textPerEditar.setText(element.getString("numeroAtomic"));
+
+        textPerEditar = (TextView) findViewById(R.id.informacioSerieElement);
+        textPerEditar.setText(element.getString("tipus").substring(0, 1).toUpperCase() + element.getString("tipus").substring(1));
+
+        textPerEditar = (TextView) findViewById(R.id.informacioMassaElement);
+        textPerEditar.setText(element.getString("massaAtomica"));
+
+        textPerEditar = (TextView) findViewById(R.id.informacioConfiguracioElement);
+        textPerEditar.setText(element.getString("configuracioElectronica"));
+
+        textPerEditar = (TextView) findViewById(R.id.informacioEstatElement);
+        textPerEditar.setText(element.getString("estatPredeterminat").substring(0, 1).toUpperCase() + element.getString("estatPredeterminat").substring(1));
     }
 
     @Override
