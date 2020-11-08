@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
@@ -21,6 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.w3c.dom.Text;
 
 public class ActivityDadesElement extends AppCompatActivity {
+
+    public String nomElement;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -116,6 +120,9 @@ public class ActivityDadesElement extends AppCompatActivity {
             }
         });
 
+        // Es recupera el nom de l'element i s'emmagatzema en una variable global de l'Activity
+        nomElement = element.getString("nom");
+
         // Es modifiquen les parts del layout
         TextView textPerEditar = (TextView) findViewById(R.id.informacioNomElement);
         textPerEditar.setText(element.getString("nom"));
@@ -137,6 +144,18 @@ public class ActivityDadesElement extends AppCompatActivity {
 
         textPerEditar = (TextView) findViewById(R.id.informacioEstatElement);
         textPerEditar.setText(element.getString("estatPredeterminat").substring(0, 1).toUpperCase() + element.getString("estatPredeterminat").substring(1));
+
+        // Es crea un click listener pel text que fa un enllaç a internet
+        textPerEditar = (TextView) findViewById(R.id.linkInternet);
+        textPerEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/" + nomElement));
+                startActivity(intent);
+                
+            }
+        });
     }
 
     @Override

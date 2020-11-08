@@ -179,6 +179,18 @@
         app:layout_constraintStart_toStartOf="@+id/separadorVertical"
         app:layout_constraintTop_toBottomOf="@+id/informacioConfiguracioElement" />
 
+    <TextView
+        android:id="@+id/linkInternet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Link internet"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolEstatElement" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnCompartir"
         android:layout_width="wrap_content"
