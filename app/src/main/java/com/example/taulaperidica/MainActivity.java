@@ -1,6 +1,7 @@
 package com.example.taulaperidica;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -146,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
             new Element("Og", 118, "gas noble", "Oganesson", "294 u", "[Rn] 5f14 6d10 7s2 7p6", "sintètic"),
     };
 
+    // Guarda la puntuació més alta
+    private int puntuacioMaxima = 0;
+
     // Aquest Array contindrà els elements que s'han de mostrar per pantalla. És el que es troba en producció i s'abasteix amb la informació de l'Array de la part superior.
     public Element[] elements;
 
@@ -216,6 +220,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.gameButton:
+                launchGame();
                 return true;
 
             case R.id.totsButton:
@@ -294,5 +299,28 @@ public class MainActivity extends AppCompatActivity {
         // Es notifiquen els canvis
         this.adaptador.notifyDataSetChanged();
         
+    }
+
+    // Mètode que inicia el joc i prepara l'activity per rebre el número màxim de puntuació
+    private void launchGame() {
+
+        // Es crea l'intent
+        Intent intent = new Intent(getApplicationContext(), ActivityGame.class);
+
+        // Se li passa la puntuació màxima que s'ha aconseguit en el joc
+        intent.putExtra("puntuacio", puntuacioMaxima);
+
+        startActivityForResult(intent, 1);
+
+    }
+
+    // Canvia la puntuació màxima quan es tanca l'activity game
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            puntuacioMaxima = data.getExtras().getInt("puntuacio");
+        }
     }
 }
