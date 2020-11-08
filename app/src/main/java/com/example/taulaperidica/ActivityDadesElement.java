@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 
 public class ActivityDadesElement extends AppCompatActivity {
 
-    public String nomElement;
+    private Bundle element;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -33,7 +33,7 @@ public class ActivityDadesElement extends AppCompatActivity {
         setContentView(R.layout.activity_dades_element);
 
         // Es recuperan les dades enviades per l'activity principal
-        Bundle element = getIntent().getExtras();
+        element = getIntent().getExtras();
 
         // Es preparen els colors necessaris per mostrar correctament l'Activity
         String colorFons = "#ffffff";
@@ -116,12 +116,9 @@ public class ActivityDadesElement extends AppCompatActivity {
         btnCompartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                compartirInformacio();
             }
         });
-
-        // Es recupera el nom de l'element i s'emmagatzema en una variable global de l'Activity
-        nomElement = element.getString("nom");
 
         // Es modifiquen les parts del layout
         TextView textPerEditar = (TextView) findViewById(R.id.informacioNomElement);
@@ -150,10 +147,7 @@ public class ActivityDadesElement extends AppCompatActivity {
         textPerEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/" + nomElement));
-                startActivity(intent);
-                
+                obrirLinkWikipedia();
             }
         });
     }
@@ -168,5 +162,41 @@ public class ActivityDadesElement extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Comparteix la informació de l'element mitjançant aplicacions de missatgeria
+    private void compartirInformacio() {
+
+        // Es crea un intent
+        Intent intent = new Intent();
+
+        // Es prepara el missatge amb les dades de l'element que es vol enviar
+        String missatge = "Mitjançant la fantàstica aplicació \"Taula Periòdica\" he trobat la informació de l'element " + element.getString("nom") + "\n" +
+                "Nom:\t\t\t" + element.getString("nom") + "\n" +
+                "Simbol:\t\t\t" + element.getString("simbol") + "\n" +
+                "Número:\t\t\t" + element.getString("numeroAtomic") + "\n" +
+                "Sèrie Química:\t" + element.getString("tipus").substring(0, 1).toUpperCase() + element.getString("tipus").substring(1) + "\n" +
+                "Massa:\t\t\t" + element.getString("massaAtomica") + "\n" +
+                "Configuració:\t" + element.getString("configuracioElectronica") + "\n" +
+                "Estat:\t\t\t" + element.getString("estatPredeterminat").substring(0, 1).toUpperCase() + element.getString("estatPredeterminat").substring(1);
+
+        // Es configura l'intent per obrir una aplicació de missatgeria y es carrega amb les dades del missatge
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, missatge);
+        intent.setType("text/plain");
+
+        // S'inicia l'activity
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+    }
+
+    // Obre l'enllaç a Wikipedia de l'element seleccionat
+    private void obrirLinkWikipedia() {
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/" + element.getString("nom")));
+        startActivity(intent);
+
     }
 }

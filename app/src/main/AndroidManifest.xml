@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.taulaperidica">
 
     <application
@@ -11,7 +12,13 @@
         android:theme="@style/Theme.TaulaPeriòdica">
         <activity android:name=".ActivityDadesElement"
             android:screenOrientation="portrait">
-
+            <intent-filter android:scheme="http"
+                tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW"
+                    tools:ignore="AppLinkUrlError" />
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
