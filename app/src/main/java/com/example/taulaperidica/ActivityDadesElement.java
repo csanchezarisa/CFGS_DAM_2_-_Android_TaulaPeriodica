@@ -5,14 +5,18 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
 
@@ -100,9 +104,17 @@ public class ActivityDadesElement extends AppCompatActivity {
         actionBar.setTitle(Html.fromHtml("<font color = \"black\"> Element " + element.getString("nom") + " - " + element.getString("simbol") + "</font>"));
         // Es canvia el color de fons
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(colorFons)));
-        Button btnCompartir = (Button) findViewById(R.id.btnCompartir);
-        btnCompartir.setBackgroundColor(Color.parseColor(colorFons));
-        btnCompartir.setBackground(new ColorDrawable(R.drawable.boto_rodo));
+
+        // Es canvia el color del botó flotant pel de l'element
+        FloatingActionButton btnCompartir = (FloatingActionButton) findViewById(R.id.btnCompartir);
+        btnCompartir.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colorFons)));
+        // Listener pel botó flotant per compartir
+        btnCompartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         // Es modifiquen les parts del layout
         TextView textPerEditar = (TextView) findViewById(R.id.informacioNomElement);
