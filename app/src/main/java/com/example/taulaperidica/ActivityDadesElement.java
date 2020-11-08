@@ -80,26 +80,6 @@ public class ActivityDadesElement extends AppCompatActivity {
                 break;
         }
 
-        int colorSimbol = Color.BLACK;
-
-        switch (element.getString("estatPredeterminat")) {
-            case "sòlid":
-                colorSimbol = Color.BLACK;
-                break;
-
-            case "líquid":
-                colorSimbol = Color.BLUE;
-                break;
-
-            case "sintètic":
-                colorSimbol = Color.RED;
-                break;
-
-            case "gas":
-                colorSimbol = Color.GREEN;
-                break;
-        }
-
         // Es personalitza l'action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
