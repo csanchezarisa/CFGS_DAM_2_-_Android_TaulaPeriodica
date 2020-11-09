@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -160,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Es personalitza el títol de la actionbar
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Taula Periòdica");
+        actionBar.setTitle(Html.fromHtml("<font color = \"black\">Taula Periòdica</font>"));
 
         // Es preparar l'array de producció amb totes les dades
         elements = new Element[elementsOrigenDades.length];
@@ -310,6 +311,7 @@ public class MainActivity extends AppCompatActivity {
         // Se li passa la puntuació màxima que s'ha aconseguit en el joc
         intent.putExtra("puntuacio", puntuacioMaxima);
 
+        // S'inicia l'activity esperant el resultat de la puntuació màxima
         startActivityForResult(intent, 1);
 
     }
