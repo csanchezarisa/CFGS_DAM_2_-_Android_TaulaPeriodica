@@ -17,8 +17,8 @@ import android.widget.ListView;
 import com.example.taulaperidica.elements.AdaptadorElement;
 import com.example.taulaperidica.elements.Element;
 
-import com.example.taulaperidica.elements.Element;
 import com.example.taulaperidica.elements.LlistatElements;
+import com.example.taulaperidica.game.ActivityGame;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.taulaperidica;
+package com.example.taulaperidica.game;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.taulaperidica.R;
 
 public class ActivityGame extends AppCompatActivity {
 
