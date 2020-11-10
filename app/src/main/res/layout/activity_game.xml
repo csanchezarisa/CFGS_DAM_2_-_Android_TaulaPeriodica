@@ -6,12 +6,170 @@
     android:layout_height="match_parent"
     tools:context=".game.ActivityGame">
 
-    <TextView
-        android:id="@+id/puntuacio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="96dp" />
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/scrollViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtTitol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Taula Periòdica\nTHE GAME"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTitolEncertarSimbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Encertar Símbol"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:id="@+id/layoutEncertarSimbol"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPuntuacioEncertarSimbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Puntuació màxima: "
+                    android:textSize="18dp" />
+
+                <Button
+                    android:id="@+id/btnStartEncertarSimbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Play"
+                    android:textSize="18dp"
+                    app:icon="@drawable/ic_media_play_light" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTitolEncertarSimbol2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Encertar Nom"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:id="@+id/layoutEncertarNom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPuntuacioEncertarNom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Puntuació màxima: "
+                    android:textSize="18dp" />
+
+                <Button
+                    android:id="@+id/btnStartEncertarNom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Play"
+                    android:textSize="18dp"
+                    app:icon="@drawable/ic_media_play_light" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTitolEncertarEstat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Encertar Estat"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:id="@+id/layoutEncertarEstat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPuntuacioEncertarEstat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Puntuació màxima: "
+                    android:textSize="18dp" />
+
+                <Button
+                    android:id="@+id/btnStartEncertarEstat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Play"
+                    android:textSize="18dp"
+                    app:icon="@drawable/ic_media_play_light" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTitolEncertarNumero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
+                android:text="Encertar Estat"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:id="@+id/layoutEncertarNumero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPuntuacioEncertarNumero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Puntuació màxima: "
+                    android:textSize="18dp" />
+
+                <Button
+                    android:id="@+id/btnStartEncertarNumero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50px"
+                    android:layout_weight="1"
+                    android:text="Play"
+                    android:textSize="18dp"
+                    app:icon="@drawable/ic_media_play_light" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Element[] elementsOrigenDades = LlistatElements.elements;
 
     // Guarda la puntuació més alta
-    private int puntuacioMaxima = 0;
+    private int[]  puntuacionsMaximes = new int[4];
 
     // Aquest Array contindrà els elements que s'han de mostrar per pantalla. És el que es troba en producció i s'abasteix amb la informació de l'Array de la part superior.
     public Element[] elements;
@@ -190,8 +190,12 @@ public class MainActivity extends AppCompatActivity {
         // Es crea l'intent
         Intent intent = new Intent(getApplicationContext(), ActivityGame.class);
 
-        // Se li passa la puntuació màxima que s'ha aconseguit en el joc
-        intent.putExtra("puntuacio", puntuacioMaxima);
+        // Es crea un bundle amb les puntuacions màximes que s'han aconseguit
+        Bundle puntuacions = new Bundle();
+        puntuacions.putIntArray("puntuacionsMaximes", puntuacionsMaximes);
+
+        // S'inclouen les puntuacions al intent
+        intent.putExtras(puntuacions);
 
         // S'inicia l'activity esperant el resultat de la puntuació màxima
         startActivityForResult(intent, 1);
@@ -204,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            puntuacioMaxima = data.getExtras().getInt("puntuacio");
+            puntuacionsMaximes = data.getExtras().getIntArray("puntuacionsMaximes");
         }
     }
 }

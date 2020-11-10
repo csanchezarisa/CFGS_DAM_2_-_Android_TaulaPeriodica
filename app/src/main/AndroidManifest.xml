@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaulaPeriòdica">
-        <activity android:name=".game.ActivityGame"></activity>
+        <activity android:name=".game.ActivityGame"
+            android:configChanges="orientation|screenSize">
+
+        </activity>
         <activity
             android:name=".ActivityDadesElement"
             android:screenOrientation="portrait">

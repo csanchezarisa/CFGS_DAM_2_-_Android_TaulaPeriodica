@@ -13,7 +13,7 @@ import com.example.taulaperidica.R;
 
 public class ActivityGame extends AppCompatActivity {
 
-    private int puntuacioMaxima;
+    private int[] puntuacionsMaximes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,9 @@ public class ActivityGame extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(Html.fromHtml("<font color = \"black\">Taula Periòdica - Joc</font>"));
 
-        Bundle dades = getIntent().getExtras();
-        puntuacioMaxima = dades.getInt("puntuacio") + 1;
+        // Es recuperan les puntuacions màximes que envía la MainActivity
+        puntuacionsMaximes = getIntent().getExtras().getIntArray("puntuacionsMaximes");
 
-        TextView textView = (TextView) findViewById(R.id.puntuacio);
-        textView.setText(String.valueOf(puntuacioMaxima));
 
     }
 
@@ -49,9 +47,13 @@ public class ActivityGame extends AppCompatActivity {
     // Mètode que s'encarrega de finalitzar l'activity, retornant la puntuació
     private void finalitzarIntent() {
 
-        // Es crea un intent i s'introdueix la puntuació que fa referència al nombre de vegades que ha encertat
+        // Es crea un bundle amb les puntuacions màximes que s'han obtingut
+        Bundle puntuacions = new Bundle();
+        puntuacions.putIntArray("puntuacionsMaximes", puntuacionsMaximes);
+
+        // Es crea un intent i les puntuacions màximes
         Intent intent = new Intent();
-        intent.putExtra("puntuacio", puntuacioMaxima);
+        intent.putExtras(puntuacions);
 
         // Es finalitza l'activity retornant la puntuació
         setResult(RESULT_OK, intent);
