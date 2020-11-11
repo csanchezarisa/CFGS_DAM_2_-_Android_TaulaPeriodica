@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".game.modalitats.ActivityGameEncertarEstat">
 
+    <TextView
+        android:id="@+id/txtNomElement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="50px"
+        android:text="nomElement"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100px"
+        android:text="Introdueix el símbol de l'element:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomElement" />
+
+    <EditText
+        android:id="@+id/edtEstatElement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="100px"
+        android:ems="10"
+        android:hint="Símbol de l'element"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPregunta" />
+
+    <Button
+        android:id="@+id/btnAcceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30px"
+        android:layout_weight="1"
+        android:text="Acceptar"
+        android:textColor="#000000"
+        app:icon="@drawable/ic_check"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEstatElement" />
+
+    <TextView
+        android:id="@+id/txtPuntuacioActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100px"
+        android:text="Puntuació actual:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAcceptar" />
+
+    <TextView
+        android:id="@+id/txtPuntuacioMaxima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100px"
+        android:text="Puntuació màxima:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPuntuacioActual" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
