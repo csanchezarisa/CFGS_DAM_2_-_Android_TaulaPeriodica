@@ -139,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80px"
-                android:text="Encertar Estat"
+                android:text="Encertar Número Atòmic"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
