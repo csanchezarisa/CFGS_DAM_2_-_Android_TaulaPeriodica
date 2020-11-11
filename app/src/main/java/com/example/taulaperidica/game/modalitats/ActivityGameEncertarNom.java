@@ -8,6 +8,8 @@ import com.example.taulaperidica.R;
 
 public class ActivityGameEncertarNom extends AppCompatActivity {
 
+    private int puntuacioActual = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

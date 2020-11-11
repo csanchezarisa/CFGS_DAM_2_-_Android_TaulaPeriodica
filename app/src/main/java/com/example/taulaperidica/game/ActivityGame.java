@@ -1,6 +1,7 @@
 package com.example.taulaperidica.game;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.taulaperidica.R;
+import com.example.taulaperidica.game.modalitats.ActivityGameEncertarEstat;
+import com.example.taulaperidica.game.modalitats.ActivityGameEncertarNom;
+import com.example.taulaperidica.game.modalitats.ActivityGameEncertarNumero;
+import com.example.taulaperidica.game.modalitats.ActivityGameEncertarSimbol;
 
 public class ActivityGame extends AppCompatActivity {
 
@@ -105,20 +110,28 @@ public class ActivityGame extends AppCompatActivity {
 
     }
 
+    // Inicia el joc corresponent segons quina modalitat s'ha escollit (ho decideix el botó que s'ha clicat)
     private void iniciarJoc(int modalitat) {
+
+        Intent intent;
+        Bundle puntuacio = new Bundle();
 
         switch (modalitat) {
 
             case GAME_ENCERTAR_SIMBOL:
+                intent = new Intent(getApplicationContext(), ActivityGameEncertarSimbol.class);
                 break;
 
             case GAME_ENCERTAR_NOM:
+                intent = new Intent(getApplicationContext(), ActivityGameEncertarNom.class);
                 break;
 
             case GAME_ENCERTAR_ESTAT:
+                intent = new Intent(getApplicationContext(), ActivityGameEncertarEstat.class);
                 break;
 
             case GAME_ENCERTAR_NUMERO:
+                intent = new Intent(getApplicationContext(), ActivityGameEncertarNumero.class);
                 break;
 
             default:
@@ -126,7 +139,7 @@ public class ActivityGame extends AppCompatActivity {
 
         }
 
-
+        startActivityForResult(intent, modalitat);
 
     }
 
@@ -144,6 +157,25 @@ public class ActivityGame extends AppCompatActivity {
         // Es finalitza l'activity retornant la puntuació
         setResult(RESULT_OK, intent);
         finish();
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        int puntuacioRecuperada = data.getExtras().getInt("puntuacio");
+
+        if (resultCode == RESULT_OK) {
+
+            /* Com que en la crida a l'intent se li assigna el mateix numero de requestCode
+            *  que la posició que té la seva puntuació màxima en l'array, podem fer aquesta comparació d'una manera
+            *  molt més simple */
+            if (puntuacioRecuperada > puntuacionsMaximes[requestCode]) {
+                puntuacionsMaximes[requestCode] = puntuacioRecuperada;
+            }
+
+        }
 
     }
 }

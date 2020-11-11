@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.taulaperidica.R;
+
 public class ActivityGameEncertarSimbol extends AppCompatActivity {
 
     @Override
