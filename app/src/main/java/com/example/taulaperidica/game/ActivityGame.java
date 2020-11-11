@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -114,7 +115,6 @@ public class ActivityGame extends AppCompatActivity {
     private void iniciarJoc(int modalitat) {
 
         Intent intent;
-        Bundle puntuacio = new Bundle();
 
         switch (modalitat) {
 
@@ -139,11 +139,12 @@ public class ActivityGame extends AppCompatActivity {
 
         }
 
+        intent.putExtra("puntuacio", puntuacionsMaximes[modalitat]);
         startActivityForResult(intent, modalitat);
 
     }
 
-    // Mètode que s'encarrega de finalitzar l'activity, retornant la puntuació
+    // Mètode que s'encarrega de finalitzar l'activity, retornant les puntuacions
     private void finalitzarIntent() {
 
         // Es crea un bundle amb les puntuacions màximes que s'han obtingut
@@ -160,6 +161,18 @@ public class ActivityGame extends AppCompatActivity {
 
     }
 
+    // Escolta quan la tecla per tornar endarrera
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            finalitzarIntent();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    // Recull les puntuacions que envien els intents de les modalitats del jod
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -176,6 +189,8 @@ public class ActivityGame extends AppCompatActivity {
             }
 
         }
+
+        actualitzarTextPuntuacions();
 
     }
 }

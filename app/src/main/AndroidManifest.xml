@@ -10,10 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaulaPeriòdica">
-        <activity android:name=".game.modalitats.ActivityGameEncertarNumero"></activity>
-        <activity android:name=".game.modalitats.ActivityGameEncertarEstat" />
-        <activity android:name=".game.modalitats.ActivityGameEncertarSimbol" />
-        <activity android:name=".game.modalitats.ActivityGameEncertarNom" />
+        <activity android:name=".game.modalitats.ActivityGameEncertarNumero"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".game.modalitats.ActivityGameEncertarEstat"
+            android:screenOrientation="portrait" />
+        <activity android:name=".game.modalitats.ActivityGameEncertarSimbol"
+            android:screenOrientation="portrait" />
+        <activity android:name=".game.modalitats.ActivityGameEncertarNom"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".game.ActivityGame"
             android:configChanges="orientation|screenSize" />
