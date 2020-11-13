@@ -6,4 +6,194 @@
     android:layout_height="match_parent"
     tools:context=".personalitzar.ActivityPersonalitzarColors">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTitolColorEstat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:text="Colors dels estats"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolEstatSolid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Estat sòlid: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorEstatSolid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color de l'estat sòlid"
+                    android:inputType="textPersonName"
+                    android:text="#ColorEstatSolid" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorEstatSolid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolEstatLiquid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Estat líquid: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorEstatLiquid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color de l'estat líquid"
+                    android:inputType="textPersonName"
+                    android:text="#ColorEstatLiquid" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorEstatLiquid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolEstatSintetic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Estat sintètic: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorEstatSintetic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color de l'estat sintètic"
+                    android:inputType="textPersonName"
+                    android:text="#ColorEstatSintetic" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorEstatSintetic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txtTitolEstatGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Estat gas: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorEstatGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color de l'estat gas"
+                    android:inputType="textPersonName"
+                    android:text="#ColorEstatGas" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorEstatGas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <TextView
+                android:id="@+id/txtTitolColorTipus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:layout_weight="1"
+                android:text="Colors dels tipus"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import com.example.taulaperidica.elements.Element;
 
 import com.example.taulaperidica.elements.LlistatElements;
 import com.example.taulaperidica.game.ActivityGame;
+import com.example.taulaperidica.personalitzar.ActivityPersonalitzarColors;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Aquest Array contindrà els elements que s'han de mostrar per pantalla. És el que es troba en producció i s'abasteix amb la informació de l'Array de la part superior.
     public Element[] elements;
+
+    // S'utilitza per assignar RequestCodes als intents d'una manera més entenedora
+    private final int ACTIVITY_GAME = 1;
+    private final int ACTIVITY_PERSONALITZAR = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.gameButton:
                 launchGame();
+                return true;
+
+            case R.id.personalitzar:
+                launchPersonalitzar();
                 return true;
 
             case R.id.totsButton:
@@ -204,7 +213,15 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(puntuacions);
 
         // S'inicia l'activity esperant el resultat de la puntuació màxima
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, ACTIVITY_GAME);
+
+    }
+
+    // Inicia l'Activity per personalitzar els colors
+    private void launchPersonalitzar() {
+
+        Intent intent = new Intent(getApplicationContext(), ActivityPersonalitzarColors.class);
+        startActivityForResult(intent, ACTIVITY_PERSONALITZAR);
 
     }
 
@@ -213,10 +230,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK) {
+        if (requestCode == ACTIVITY_GAME && resultCode == RESULT_OK) {
             puntuacionsMaximes = data.getExtras().getIntArray("puntuacionsMaximes");
             partidesGuanyades = data.getExtras().getInt("partidesGuanyades");
             partidesJugades = data.getExtras().getInt("partidesJugades");
+        }
+        else if (requestCode == ACTIVITY_PERSONALITZAR && resultCode == RESULT_OK) {
+
         }
     }
 }

@@ -88,7 +88,7 @@ public class ElementsColors {
     public static int getTipusDefault() {
         return tipusDefault;
     }
-    
+
     // SETTERS
     public static void setEstatSolid(int estatSolid) {
         ElementsColors.estatSolid = estatSolid;
@@ -146,7 +146,28 @@ public class ElementsColors {
         ElementsColors.tipusMetallPostTransició = tipusMetallPostTransició;
     }
 
-    public static void setTipusDefault(int tipusDefault) {
-        ElementsColors.tipusDefault = tipusDefault;
+    // Configura els colors dels elements per retornar-los als valors predeterminats
+    public static void restablirColors() {
+
+        // Colors dels estats
+        estatSolid = Color.BLACK;
+        estatLiquid = Color.BLUE;
+        estatSintetic = Color.RED;
+        estatGas = Color.GREEN;
+        estatDefault = Color.BLACK;
+
+        // Colors dels tipus
+        tipusNoMetalic = Color.parseColor("#a0ffa0");
+        tipusGasNoble = Color.parseColor("#c0ffff");
+        tipusMetallAlcali = Color.parseColor("#ff6666");
+        tipusMetallAlcaliTerros = Color.parseColor("#ffdead");
+        tipusMetalloide = Color.parseColor("#cccc99");
+        tipusHalogen = Color.parseColor("#ffff99");
+        tipusActinoide = Color.parseColor("#ff99cc");
+        tipusmetallTransicio = Color.parseColor("#ffc0c0");
+        tipusLactinoide = Color.parseColor("#ffbfff");
+        tipusMetallPostTransició = Color.parseColor("#cccccc");
+        tipusDefault = Color.parseColor("#ffffff");
+
     }
 }
