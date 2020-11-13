@@ -236,7 +236,15 @@ public class MainActivity extends AppCompatActivity {
             partidesJugades = data.getExtras().getInt("partidesJugades");
         }
         else if (requestCode == ACTIVITY_PERSONALITZAR && resultCode == RESULT_OK) {
+            // Es prepara de nou l'adaptador per mantenir els canvis
+            adaptador = new AdaptadorElement(this, elements);
 
+            // S'assigna l'adaptador personalitzat a la llista del layout principal
+            ListView llista = (ListView) findViewById(R.id.elementList);
+            llista.setAdapter(adaptador);
+
+            // Es notifiquen els canvis
+            this.adaptador.notifyDataSetChanged();
         }
     }
 }
