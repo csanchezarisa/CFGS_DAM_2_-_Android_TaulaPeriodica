@@ -2,15 +2,18 @@ package com.example.taulaperidica.game;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.taulaperidica.R;
@@ -23,6 +26,10 @@ public class ActivityGame extends AppCompatActivity {
 
     // Array que emmagatsema les puntuacions màximes
     private int[] puntuacionsMaximes;
+
+    //
+    private int partidesJugades;
+    private int partidesGuanyades;
 
     // Constants que s'utilitzen per diferenciar entre els diferents jocs
     private final int GAME_ENCERTAR_SIMBOL = 0;
@@ -43,7 +50,7 @@ public class ActivityGame extends AppCompatActivity {
         puntuacionsMaximes = getIntent().getExtras().getIntArray("puntuacionsMaximes");
 
         // Mostra les puntuacions en els TextView del Layout
-        actualitzarTextPuntuacions();
+        actualitzarPuntuacions();
 
         // Crear listeners als botons
         Button btnEncertarSimbol = (Button) findViewById(R.id.btnStartEncertarSimbol);
@@ -95,7 +102,8 @@ public class ActivityGame extends AppCompatActivity {
     }
 
     // Escriu les puntuacions en els TextView del layout
-    private void actualitzarTextPuntuacions() {
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void actualitzarPuntuacions() {
 
         TextView textView = (TextView) findViewById(R.id.txtPuntuacioEncertarSimbol);
         textView.setText("Puntuació màxima: " + puntuacionsMaximes[GAME_ENCERTAR_SIMBOL]);
@@ -108,6 +116,17 @@ public class ActivityGame extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.txtPuntuacioEncertarNumero);
         textView.setText("Puntuació màxima: " + puntuacionsMaximes[GAME_ENCERTAR_NUMERO]);
+
+        textView = (TextView) findViewById(R.id.txtPartidesJugades);
+        textView.setText("Jugades: " + partidesJugades);
+
+        textView = (TextView) findViewById(R.id.txtPartidesGuanyades);
+        textView.setText("Guanyades: " + partidesGuanyades);
+
+        // A la barra de progrés se li configura el valor Max i el valor Progres. La pròpia barra farà el càlcul i mostrarà l'avenç
+        ProgressBar graficaProgres = (ProgressBar) findViewById(R.id.graficaProgres);
+        graficaProgres.setMax(partidesJugades);
+        graficaProgres.setProgress(partidesGuanyades, true);
 
     }
 
@@ -188,9 +207,13 @@ public class ActivityGame extends AppCompatActivity {
                 puntuacionsMaximes[requestCode] = puntuacioRecuperada;
             }
 
+            // Es controlen quantes partides s'han jugat i guanyat per poder fer les gràfiques
+            partidesGuanyades = data.getExtras().getInt("partidesGuanyades") + partidesGuanyades;
+            partidesJugades = data.getExtras().getInt("partidesJugades") + partidesJugades;
+
         }
 
-        actualitzarTextPuntuacions();
+        actualitzarPuntuacions();
 
     }
 }

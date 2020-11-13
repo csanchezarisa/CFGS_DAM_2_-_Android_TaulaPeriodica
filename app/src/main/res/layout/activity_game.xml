@@ -170,6 +170,58 @@
                     app:icon="@drawable/ic_media_play_light" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/layoutGraficProgres"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/graficaProgres"
+                    style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="50px"
+                    android:layout_weight="1"
+                    android:drawingCacheQuality="high"
+                    android:max="0"
+                    android:min="0"
+                    android:progress="0"
+                    tools:targetApi="lollipop" />
+
+                <LinearLayout
+                    android:id="@+id/layoutTextGraficaProgres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtPartidesJugades"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50px"
+                        android:layout_marginTop="80px"
+                        android:layout_marginRight="50px"
+                        android:layout_weight="1"
+                        android:text="Partides jugades:"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/txtPartidesGuanyades"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50px"
+                        android:layout_marginRight="50px"
+                        android:layout_marginBottom="80px"
+                        android:layout_weight="1"
+                        android:text="Partides guanyades"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,11 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
     // Emmagatzema la puntuació màxima que s'ha aconseguit en el joc
     private int puntuacioMaxima;
 
+    // Comptador de partides guanyades i de partides jugades, que es retornarà a l'activity principal del joc
+    private int partidesJugades;
+    private int partidesGuanyades;
+
+    // Emmagatzema les dades necesàries per identificar l'element actual
     private String estatElementActual;
     private String nomElementActual;
 
@@ -37,6 +42,10 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_encertar_estat);
+
+        // S'inicialitzen els comptadors a 0
+        partidesGuanyades = 0;
+        partidesJugades = 0;
 
         // Es recupera la puntuació màxima d'aquesta modalitat de joc
         puntuacioMaxima = getIntent().getExtras().getInt("puntuacio");
@@ -106,7 +115,7 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
 
         // S'aconsegueix el nom i el símbol de l'element
         nomElementActual = elements[posicioLlistat].getNom();
-        estatElementActual = elements[posicioLlistat].getSimbol();
+        estatElementActual = elements[posicioLlistat].getEstatPredeterminat();
 
         TextView textView = (TextView) findViewById(R.id.txtNomElement);
         textView.setText(nomElementActual);
@@ -119,6 +128,8 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
         if (input.getText().toString().length() > 0) {
 
             if (input.getText().toString().equalsIgnoreCase(estatElementActual)) {
+                partidesJugades ++;
+                partidesGuanyades ++;
                 puntuacio ++;
                 setPuntuacions();
                 generaSimbol();
@@ -129,6 +140,7 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
                 if (puntuacio > puntuacioMaxima)
                     puntuacioMaxima = puntuacio;
 
+                partidesJugades ++;
                 puntuacio = 0;
                 setPuntuacions();
                 Toast.makeText(getApplicationContext(), "T'HAS EQUIVOCAT, L'ESTAT ERA " + estatElementActual.toUpperCase() + "!", Toast.LENGTH_LONG).show();
@@ -157,6 +169,8 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
         // Es crea un intent i les puntuacions màximes
         Intent intent = new Intent();
         intent.putExtra("puntuacio", puntuacioMaxima);
+        intent.putExtra("partidesGuanyades", partidesGuanyades);
+        intent.putExtra("partidesJugades", partidesJugades);
 
         // Es finalitza l'activity retornant la puntuació
         setResult(RESULT_OK, intent);
