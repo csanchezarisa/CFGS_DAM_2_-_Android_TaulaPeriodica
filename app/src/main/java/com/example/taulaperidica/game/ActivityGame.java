@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class ActivityGame extends AppCompatActivity {
     // Array que emmagatsema les puntuacions màximes
     private int[] puntuacionsMaximes;
 
-    //
+    // Emmagatzemen el valor de partides guanyades i jugades per poder mostrar el gràfic
     private int partidesJugades;
     private int partidesGuanyades;
 
@@ -37,6 +38,7 @@ public class ActivityGame extends AppCompatActivity {
     private final int GAME_ENCERTAR_ESTAT = 2;
     private final int GAME_ENCERTAR_NUMERO = 3;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +48,10 @@ public class ActivityGame extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(Html.fromHtml("<font color = \"black\">Taula Periòdica - Joc</font>"));
 
-        // Es recuperan les puntuacions màximes que envía la MainActivity
+        // Es recuperan les puntuacions màximes que envía la MainActivity, juntament amb les partides jugades i guanyades per dibuixar la gràfica
         puntuacionsMaximes = getIntent().getExtras().getIntArray("puntuacionsMaximes");
+        partidesGuanyades = getIntent().getExtras().getInt("partidesGuanyades");
+        partidesJugades = getIntent().getExtras().getInt("partidesJugades");
 
         // Mostra les puntuacions en els TextView del Layout
         actualitzarPuntuacions();
@@ -87,6 +91,15 @@ public class ActivityGame extends AppCompatActivity {
 
     }
 
+    // S'implementa el menú personalitzat
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_game_menu, menu);
+        return true;
+    }
+
+    // Es controla quins botons del menú s'estan clicant
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -94,6 +107,10 @@ public class ActivityGame extends AppCompatActivity {
 
             case android.R.id.home:
                 finalitzarIntent();
+                return true;
+
+            case R.id.reiniciar:
+                reiniciarPuntuacions();
                 return true;
 
         }
@@ -128,6 +145,20 @@ public class ActivityGame extends AppCompatActivity {
         graficaProgres.setMax(partidesJugades);
         graficaProgres.setProgress(partidesGuanyades, true);
 
+    }
+
+    // Es reinicien les puntuacions, totes les variables tornen al valor 0
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void reiniciarPuntuacions() {
+
+        for (int index = 0; index < puntuacionsMaximes.length; index++) {
+            puntuacionsMaximes[index] = 0;
+        }
+
+        partidesJugades = 0;
+        partidesGuanyades = 0;
+
+        actualitzarPuntuacions();
     }
 
     // Inicia el joc corresponent segons quina modalitat s'ha escollit (ho decideix el botó que s'ha clicat)
@@ -192,6 +223,7 @@ public class ActivityGame extends AppCompatActivity {
     }
 
     // Recull les puntuacions que envien els intents de les modalitats del jod
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

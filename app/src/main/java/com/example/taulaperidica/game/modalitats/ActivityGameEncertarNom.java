@@ -26,6 +26,11 @@ public class ActivityGameEncertarNom extends AppCompatActivity {
     // Emmagatzema la puntuació màxima que s'ha aconseguit en el joc
     private int puntuacioMaxima;
 
+    // Comptador de partides guanyades i de partides jugades, que es retornarà a l'activity principal del joc
+    private int partidesJugades;
+    private int partidesGuanyades;
+
+    // Emmagatzema les dades necesàries per identificar l'element actual
     private String simbolElementActual;
     private String nomElementActual;
 
@@ -118,6 +123,8 @@ public class ActivityGameEncertarNom extends AppCompatActivity {
         if (input.getText().toString().length() > 0) {
 
             if (input.getText().toString().equalsIgnoreCase(simbolElementActual)) {
+                partidesGuanyades ++;
+                partidesJugades ++;
                 puntuacio ++;
                 setPuntuacions();
                 generaSimbol();
@@ -128,6 +135,7 @@ public class ActivityGameEncertarNom extends AppCompatActivity {
                 if (puntuacio > puntuacioMaxima)
                     puntuacioMaxima = puntuacio;
 
+                partidesJugades ++;
                 puntuacio = 0;
                 setPuntuacions();
                 Toast.makeText(getApplicationContext(), "T'HAS EQUIVOCAT, EL SÍMBOL ERA " + simbolElementActual + "!", Toast.LENGTH_LONG).show();
@@ -156,6 +164,8 @@ public class ActivityGameEncertarNom extends AppCompatActivity {
         // Es crea un intent i les puntuacions màximes
         Intent intent = new Intent();
         intent.putExtra("puntuacio", puntuacioMaxima);
+        intent.putExtra("partidesGuanyades", partidesGuanyades);
+        intent.putExtra("partidesJugades", partidesJugades);
 
         // Es finalitza l'activity retornant la puntuació
         setResult(RESULT_OK, intent);

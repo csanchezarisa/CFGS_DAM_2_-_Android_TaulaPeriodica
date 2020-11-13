@@ -30,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
     // Array amb tots els elements definits. Aquest no s'utilitza en producció, només és un origen de dades
     private Element[] elementsOrigenDades = LlistatElements.elements;
 
-    // Guarda la puntuació més alta
+    // Emmagatzemen el valor de partides guanyades i jugades per poder mostrar el gràfic
+    private int partidesJugades = 0;
+    private int partidesGuanyades = 0;
+
+    // Guarda les puntuacions més altes
     private int[]  puntuacionsMaximes = new int[4];
 
     // Aquest Array contindrà els elements que s'han de mostrar per pantalla. És el que es troba en producció i s'abasteix amb la informació de l'Array de la part superior.
@@ -193,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
         // Es crea un bundle amb les puntuacions màximes que s'han aconseguit
         Bundle puntuacions = new Bundle();
         puntuacions.putIntArray("puntuacionsMaximes", puntuacionsMaximes);
+        puntuacions.putInt("partidesGuanyades", partidesGuanyades);
+        puntuacions.putInt("partidesJugades", partidesJugades);
 
         // S'inclouen les puntuacions al intent
         intent.putExtras(puntuacions);
@@ -209,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
             puntuacionsMaximes = data.getExtras().getIntArray("puntuacionsMaximes");
+            partidesGuanyades = data.getExtras().getInt("partidesGuanyades");
+            partidesJugades = data.getExtras().getInt("partidesJugades");
         }
     }
 }
