@@ -175,7 +175,7 @@ public class ActivityDadesElement extends AppCompatActivity {
     // Obre l'enllaç a Wikipedia de l'element seleccionat
     private void obrirLinkWikipedia() {
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/" + element.getString("nom")));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ca.wikipedia.org/wiki/" + element.getString("nom")));
         startActivity(intent);
 
     }
