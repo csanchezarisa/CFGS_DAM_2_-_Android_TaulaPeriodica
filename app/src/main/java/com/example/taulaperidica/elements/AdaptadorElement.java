@@ -38,23 +38,27 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
         textPerEditar.setText(element.getSimbol());
 
         // Es canvia el color del símbol segons l'estat predeterminat de l'element
-        int colorSimbol = Color.BLACK;
+        int colorSimbol;
 
         switch (element.getEstatPredeterminat()) {
             case "sòlid":
-                colorSimbol = Color.BLACK;
+                colorSimbol = ElementsColors.getEstatSolid();
                 break;
 
             case "líquid":
-                colorSimbol = Color.BLUE;
+                colorSimbol = ElementsColors.getEstatLiquid();
                 break;
 
             case "sintètic":
-                colorSimbol = Color.RED;
+                colorSimbol = ElementsColors.getEstatSintetic();
                 break;
 
             case "gas":
-                colorSimbol = Color.GREEN;
+                colorSimbol = ElementsColors.getEstatGas();
+                break;
+
+            default:
+                colorSimbol = ElementsColors.getEstatDefault();
                 break;
         }
 
@@ -69,54 +73,54 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
         textPerEditar.setText(element.getNom());
 
         // Canviar el color de fons de cada elements segons el seu tipus
-        String colorFons = "";
+        int colorFons;
 
         switch (element.getTipus()) {
             case "no metàl·lic":
-                colorFons = "#a0ffa0";
+                colorFons = ElementsColors.getTipusNoMetalic();
                 break;
 
             case "gas noble":
-                colorFons = "#c0ffff";
+                colorFons = ElementsColors.getTipusGasNoble();
                 break;
 
             case "metall alcalí":
-                colorFons = "#ff6666";
+                colorFons = ElementsColors.getTipusMetallAlcali();
                 break;
 
             case "metall alcalino-terrós":
-                colorFons = "#ffdead";
+                colorFons = ElementsColors.getTipusMetallAlcaliTerros();
                 break;
 
             case "metal·loide":
-                colorFons = "#cccc99";
+                colorFons = ElementsColors.getTipusMetalloide();;
                 break;
 
             case "halògen":
-                colorFons = "#ffff99";
+                colorFons = ElementsColors.getTipusHalogen();
                 break;
 
             case "actinoide":
-                colorFons = "#ff99cc";
+                colorFons = ElementsColors.getTipusActinoide();
                 break;
 
             case "metall de transició":
-                colorFons = "#ffc0c0";
+                colorFons = ElementsColors.getTipusmetallTransicio();
                 break;
 
             case "lantanoide":
-                colorFons = "#ffbfff";
+                colorFons = ElementsColors.getTipusLactinoide();
                 break;
 
             case "metall post-transició":
-                colorFons = "#cccccc";
+                colorFons = ElementsColors.getTipusMetallPostTransició();
                 break;
 
             default:
-                colorFons = "#ffffff";
+                colorFons = ElementsColors.getTipusDefault();
         }
 
-        fila.setBackgroundColor(Color.parseColor(colorFons.toUpperCase()));
+        fila.setBackgroundColor(colorFons);
 
         return fila;
     }
