@@ -1,22 +1,28 @@
 package com.example.taulaperidica.game.modalitats;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.taulaperidica.R;
 import com.example.taulaperidica.elements.Element;
 import com.example.taulaperidica.elements.LlistatElements;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ActivityGameEncertarEstat extends AppCompatActivity {
 
@@ -132,8 +138,8 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
                 partidesGuanyades ++;
                 puntuacio ++;
                 setPuntuacions();
+                snackbarEncertat();
                 generaSimbol();
-                Toast.makeText(getApplicationContext(), "HAS ENCERTAT!", Toast.LENGTH_LONG).show();
             }
             else {
 
@@ -143,20 +149,65 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
                 partidesJugades ++;
                 puntuacio = 0;
                 setPuntuacions();
-                Toast.makeText(getApplicationContext(), "T'HAS EQUIVOCAT, L'ESTAT ERA " + estatElementActual.toUpperCase() + "!", Toast.LENGTH_LONG).show();
-
+                alertError();
                 generaSimbol();
-
             }
 
         }
         else {
-            Toast.makeText(getApplicationContext(), "INTRODUEIX UN NOM!", Toast.LENGTH_LONG).show();
+            snackbarDialogBuit();
         }
 
         input.setText("");
         input.clearFocus();
 
+    }
+
+
+    // Mostra un snackbar en la part superior amb el missatge d'encert
+    private void snackbarEncertat() {
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snack = Snackbar.make(parentLayout, "HAS ENCERTAT!", Snackbar.LENGTH_LONG);
+
+        // Forzamos el TOP
+        View viewSnack = snack.getView();
+        FrameLayout.LayoutParams params =(FrameLayout.LayoutParams) viewSnack.getLayoutParams();
+        params.gravity = Gravity.TOP;
+        viewSnack.setLayoutParams(params);
+
+        snack.show();
+    }
+
+    // Mostra un snackbar en la part superior avisant que s'ha d'omplenar l'editText
+    private void snackbarDialogBuit() {
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snack = Snackbar.make(parentLayout, Html.fromHtml("<font color=\"black\">INTRODUEIX UN ESTAT!</font>"), Snackbar.LENGTH_LONG);
+
+        // Forzamos el TOP
+        View viewSnack = snack.getView();
+        FrameLayout.LayoutParams params =(FrameLayout.LayoutParams) viewSnack.getLayoutParams();
+        params.gravity = Gravity.TOP;
+        viewSnack.setLayoutParams(params);
+        viewSnack.setBackgroundColor(Color.RED);
+
+        snack.show();
+    }
+
+    // Mostra un AlertDialog informant de l'error i notificant de la resposta correcte
+    private void alertError() {
+        AlertDialog alerta = new AlertDialog.Builder(this).create();
+
+        alerta.setTitle("NO ÉS CORRECTE!");
+        alerta.setMessage("T'has equivocat, l'estat predeterminat de l'element " + nomElementActual + " és " + estatElementActual);
+
+        alerta.setButton(AlertDialog.BUTTON_POSITIVE, "Acceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // No fa res, només tanca l'Alert
+            }
+        });
+
+        alerta.show();
     }
 
     // Mètode que s'encarrega de finalitzar l'activity, retornant la puntuació
