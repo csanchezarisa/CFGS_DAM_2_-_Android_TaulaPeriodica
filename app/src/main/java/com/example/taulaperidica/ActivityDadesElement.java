@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.taulaperidica.elements.ElementsColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
@@ -36,48 +37,51 @@ public class ActivityDadesElement extends AppCompatActivity {
         element = getIntent().getExtras();
 
         // Es preparen els colors necessaris per mostrar correctament l'Activity
-        String colorFons = "#ffffff";
+        int colorFons;
 
         switch (element.getString("tipus")) {
             case "no metàl·lic":
-                colorFons = "#a0ffa0";
+                colorFons = ElementsColors.getTipusNoMetalic();
                 break;
 
             case "gas noble":
-                colorFons = "#c0ffff";
+                colorFons = ElementsColors.getTipusGasNoble();
                 break;
 
             case "metall alcalí":
-                colorFons = "#ff6666";
+                colorFons = ElementsColors.getTipusMetallAlcali();
                 break;
 
             case "metall alcalino-terrós":
-                colorFons = "#ffdead";
+                colorFons = ElementsColors.getTipusMetallAlcaliTerros();
                 break;
 
             case "metal·loide":
-                colorFons = "#cccc99";
+                colorFons = ElementsColors.getTipusMetalloide();;
                 break;
 
             case "halògen":
-                colorFons = "#ffff99";
+                colorFons = ElementsColors.getTipusHalogen();
                 break;
 
             case "actinoide":
-                colorFons = "#ff99cc";
+                colorFons = ElementsColors.getTipusActinoide();
                 break;
 
             case "metall de transició":
-                colorFons = "#ffc0c0";
+                colorFons = ElementsColors.getTipusmetallTransicio();
                 break;
 
             case "lantanoide":
-                colorFons = "#ffbfff";
+                colorFons = ElementsColors.getTipusLactinoide();
                 break;
 
             case "metall post-transició":
-                colorFons = "#cccccc";
+                colorFons = ElementsColors.getTipusMetallPostTransició();
                 break;
+
+            default:
+                colorFons = ElementsColors.getTipusDefault();
         }
 
         // Es personalitza l'action bar
@@ -87,11 +91,11 @@ public class ActivityDadesElement extends AppCompatActivity {
         // Es canvia el títol i es possa en color negre
         actionBar.setTitle(Html.fromHtml("<font color = \"black\"> Element " + element.getString("nom") + " - " + element.getString("simbol") + "</font>"));
         // Es canvia el color de fons
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(colorFons)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(colorFons));
 
         // Es canvia el color del botó flotant pel de l'element
         FloatingActionButton btnCompartir = (FloatingActionButton) findViewById(R.id.btnCompartir);
-        btnCompartir.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colorFons)));
+        btnCompartir.setBackgroundTintList(ColorStateList.valueOf(colorFons));
         // Listener pel botó flotant per compartir
         btnCompartir.setOnClickListener(new View.OnClickListener() {
             @Override
