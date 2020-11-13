@@ -3,7 +3,6 @@ package com.example.taulaperidica.personalitzar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.taulaperidica.R;
-import com.example.taulaperidica.elements.Element;
 import com.example.taulaperidica.elements.ElementsColors;
 
 public class ActivityPersonalitzarColors extends AppCompatActivity {
@@ -79,11 +77,43 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
 
         editText = (EditText) findViewById(R.id.edtColorEstatGas);
         editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getEstatGas())));
+
+        // EditText Colors dels tipus
+        editText = (EditText) findViewById(R.id.edtColorTipusNoMetalic);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusNoMetalic())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusGasNoble);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusGasNoble())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusMetallAlcali);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusMetallAlcali())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusMetallAlcalinoTerros);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusMetallAlcaliTerros())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusMetalloide);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusMetalloide())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusHalogen);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusHalogen())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusActinoide);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusActinoide())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusMetallTransicio);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusmetallTransicio())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusLantanoide);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusLantanoide())));
+
+        editText = (EditText) findViewById(R.id.edtColorTipusMetallPostTransicio);
+        editText.setText(String.format("#%06X", (0xFFFFFF & ElementsColors.getTipusMetallPostTransició())));
     }
 
     // Configura els TextView per que el color de fons sigui el color configurat, d'aquesta manera es pot fer una previsualització
     private void personalitzarMostraColors() {
 
+        // Mostres dels colors dels estats
         TextView textViewMostra = (TextView) findViewById(R.id.mostraColorEstatSolid);
         textViewMostra.setBackgroundColor(ElementsColors.getEstatSolid());
 
@@ -96,6 +126,37 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
         textViewMostra = (TextView) findViewById(R.id.mostraColorEstatGas);
         textViewMostra.setBackgroundColor(ElementsColors.getEstatGas());
 
+        // Mostres dels colors dels tipus
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusNoMetalic);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusNoMetalic());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusGasNoble);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusGasNoble());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetallAlcali);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusMetallAlcali());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetallAlcalinoTerros);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusMetallAlcaliTerros());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetalloide);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusMetalloide());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusHalogen);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusHalogen());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusActinoide);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusActinoide());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetallTransicio);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusmetallTransicio());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusLantanoide);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusLantanoide());
+
+        textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetallPostTransicio);
+        textViewMostra.setBackgroundColor(ElementsColors.getTipusMetallPostTransició());
+
     }
 
     // Finalitza l'activity retornant el codi de finalització correcte
@@ -107,5 +168,7 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
     // Configura els colors dels elements per retornar-los als valors predeterminats
     private void restablirColors() {
         ElementsColors.restablirColors();
+        personalitzarEditText();
+        personalitzarMostraColors();
     }
 }

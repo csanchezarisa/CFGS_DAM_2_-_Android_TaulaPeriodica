@@ -20,7 +20,7 @@ public class ElementsColors {
     private static int tipusHalogen = Color.parseColor("#ffff99");
     private static int tipusActinoide = Color.parseColor("#ff99cc");
     private static int tipusmetallTransicio = Color.parseColor("#ffc0c0");
-    private static int tipusLactinoide = Color.parseColor("#ffbfff");
+    private static int tipusLantanoide = Color.parseColor("#ffbfff");
     private static int tipusMetallPostTransició = Color.parseColor("#cccccc");
     private static int tipusDefault = Color.parseColor("#ffffff");
 
@@ -77,8 +77,8 @@ public class ElementsColors {
         return tipusmetallTransicio;
     }
 
-    public static int getTipusLactinoide() {
-        return tipusLactinoide;
+    public static int getTipusLantanoide() {
+        return tipusLantanoide;
     }
 
     public static int getTipusMetallPostTransició() {
@@ -138,8 +138,8 @@ public class ElementsColors {
         ElementsColors.tipusmetallTransicio = tipusmetallTransicio;
     }
 
-    public static void setTipusLactinoide(int tipusLactinoide) {
-        ElementsColors.tipusLactinoide = tipusLactinoide;
+    public static void setTipusLantanoide(int tipusLantanoide) {
+        ElementsColors.tipusLantanoide = tipusLantanoide;
     }
 
     public static void setTipusMetallPostTransició(int tipusMetallPostTransició) {
@@ -165,7 +165,7 @@ public class ElementsColors {
         tipusHalogen = Color.parseColor("#ffff99");
         tipusActinoide = Color.parseColor("#ff99cc");
         tipusmetallTransicio = Color.parseColor("#ffc0c0");
-        tipusLactinoide = Color.parseColor("#ffbfff");
+        tipusLantanoide = Color.parseColor("#ffbfff");
         tipusMetallPostTransició = Color.parseColor("#cccccc");
         tipusDefault = Color.parseColor("#ffffff");
 

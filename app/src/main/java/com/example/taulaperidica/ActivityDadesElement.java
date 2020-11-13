@@ -73,7 +73,7 @@ public class ActivityDadesElement extends AppCompatActivity {
                 break;
 
             case "lantanoide":
-                colorFons = ElementsColors.getTipusLactinoide();
+                colorFons = ElementsColors.getTipusLantanoide();
                 break;
 
             case "metall post-transició":

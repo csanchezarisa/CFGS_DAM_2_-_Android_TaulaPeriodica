@@ -109,7 +109,7 @@ public class AdaptadorElement extends ArrayAdapter<Element> {
                 break;
 
             case "lantanoide":
-                colorFons = ElementsColors.getTipusLactinoide();
+                colorFons = ElementsColors.getTipusLantanoide();
                 break;
 
             case "metall post-transició":

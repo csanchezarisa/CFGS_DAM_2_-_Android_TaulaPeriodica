@@ -39,7 +39,7 @@
                     android:layout_marginTop="50px"
                     android:layout_marginBottom="50px"
                     android:layout_weight="1"
-                    android:text="Estat sòlid: "
+                    android:text="Sòlid: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
@@ -77,7 +77,7 @@
                     android:layout_marginTop="50px"
                     android:layout_marginBottom="50px"
                     android:layout_weight="1"
-                    android:text="Estat líquid: "
+                    android:text="Líquid: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
@@ -115,7 +115,7 @@
                     android:layout_marginTop="50px"
                     android:layout_marginBottom="50px"
                     android:layout_weight="1"
-                    android:text="Estat sintètic: "
+                    android:text="Sintètic: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
@@ -153,7 +153,7 @@
                     android:layout_marginTop="50px"
                     android:layout_marginBottom="50px"
                     android:layout_weight="1"
-                    android:text="Estat gas: "
+                    android:text="Gas: "
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <EditText
@@ -191,9 +191,379 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusNoMetalic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="No metàl·lic: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusNoMetalic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus no metàl·lic"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusNoMetalic" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusNoMetalic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusGasNoble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Gas noble: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusGasNoble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus gas noble"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusGasNoble" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusGasNoble"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusMetallAlcali"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Metall alcalí: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusMetallAlcali"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus metall alcalí"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusMetallAlcali" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusMetallAlcali"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusMetallAlcalinoTerros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Metall alcalino-terrós: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusMetallAlcalinoTerros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus metall alcalino-terrós"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusMetallAlcalinoTerros" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusMetallAlcalinoTerros"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusMetalloide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Metal·loide:  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusMetalloide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus metal·loide"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusMetalloide" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusMetalloide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusHalogen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Halògen: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusHalogen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus halògen"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusHalogen" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusHalogen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusActinoide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Actinoide: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusActinoide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus actinoide"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusActinoide" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusActinoide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusMetallTransicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Metall transició: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusMetallTransicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus metall transició"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusMetallTransicio" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusMetallTransicio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitolTipusLantanoide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Lantanoide: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusLantanoide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus lantanoide"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusLantanoide" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusLantanoide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txtTitolTipusMetallPostTransicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="50px"
+                    android:layout_marginBottom="50px"
+                    android:layout_weight="1"
+                    android:text="Metall post-transició: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <EditText
+                    android:id="@+id/edtColorTipusMetallPostTransicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Color del tipus metall post-transició"
+                    android:inputType="textPersonName"
+                    android:text="#ColorTipusMetallPostTransicio" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mostraColorTipusMetallPostTransicio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30px" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
