@@ -26,7 +26,7 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
 
         // Personalitza la ActionBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color = \"black\">Taula Periòdica</font>"));
+        getSupportActionBar().setTitle(Html.fromHtml("<font color = \"black\">Personalitzar colors</font>"));
 
         // Personalitza el layout per mostrar la informació sobre els colors que utilitzen els elements
         personalitzarEditText();

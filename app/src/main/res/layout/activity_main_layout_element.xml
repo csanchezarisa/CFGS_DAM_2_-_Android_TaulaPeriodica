@@ -8,42 +8,69 @@
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/numAtomic"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="Número Atómic"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/simbol"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Símbol Element"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            <TextView
+                android:id="@+id/numAtomic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50px"
+                android:gravity="center"
+                android:padding="20px"
+                android:text="Número"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <TextView
-            android:id="@+id/pesAtomic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Pes Atòmic"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/simbol"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="20px"
+                android:text="Símbol"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
-        <TextView
-            android:id="@+id/nomElement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Nom Element"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="50px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nomElement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20px"
+                    android:text="Nom"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/pesAtomic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20px"
+                    android:text="Pes"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
