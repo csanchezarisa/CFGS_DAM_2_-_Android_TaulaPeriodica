@@ -3,10 +3,14 @@ package com.example.taulaperidica.personalitzar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,8 +24,33 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalitzar_colors);
 
+        // Personalitza la ActionBar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color = \"black\">Taula Periòdica</font>"));
+
+        // Personalitza el layout per mostrar la informació sobre els colors que utilitzen els elements
         personalitzarEditText();
         personalitzarMostraColors();
+
+        Button btnAplicarColors = (Button) findViewById(R.id.btnAplicar);
+        btnAplicarColors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aplicarColors();
+                personalitzarEditText();
+                personalitzarMostraColors();
+            }
+        });
+
+        Button btnAplicarColors2 = (Button) findViewById(R.id.btnAplicar2);
+        btnAplicarColors2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aplicarColors();
+                personalitzarEditText();
+                personalitzarMostraColors();
+            }
+        });
 
     }
 
@@ -156,6 +185,198 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
 
         textViewMostra = (TextView) findViewById(R.id.mostraColorTipusMetallPostTransicio);
         textViewMostra.setBackgroundColor(ElementsColors.getTipusMetallPostTransició());
+
+    }
+
+    // Canvia els colors de la clase ElementsColors pels que s'han introduit en els EditText
+    private void aplicarColors() {
+
+        // Prova a canviar els colors pels introduits per l'usuari. Si hi ha cap problema en alguna de les conversions, el color que s'aplicarà a l'element serà el Default
+        EditText editText;
+
+        // Colors dels estats
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorEstatSolid);
+            String color = editText.getText().toString();
+            ElementsColors.setEstatSolid(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setEstatSolid(ElementsColors.getEstatDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorEstatLiquid);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setEstatLiquid(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setEstatLiquid(ElementsColors.getEstatDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorEstatSintetic);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setEstatSintetic(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setEstatSintetic(ElementsColors.getEstatDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorEstatGas);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setEstatGas(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setEstatGas(ElementsColors.getEstatDefault());
+
+        }
+
+        // Colors dels tipus
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusNoMetalic);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusNoMetalic(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusNoMetalic(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusGasNoble);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusGasNoble(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusGasNoble(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusMetallAlcali);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusMetallAlcali(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusMetallAlcali(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusMetallAlcalinoTerros);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusMetallAlcaliTerros(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusMetallAlcaliTerros(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusMetalloide);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusMetalloide(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusMetalloide(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusHalogen);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusHalogen(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusHalogen(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusActinoide);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusActinoide(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusActinoide(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusMetallTransicio);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusmetallTransicio(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusmetallTransicio(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusLantanoide);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusLantanoide(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusLantanoide(ElementsColors.getTipusDefault());
+
+        }
+
+        try {
+
+            editText = (EditText) findViewById(R.id.edtColorTipusMetallPostTransicio);
+            String color = editText.getText().toString().toUpperCase();
+            ElementsColors.setTipusMetallPostTransició(Color.parseColor(color));
+
+        }
+        catch (Exception e) {
+
+            ElementsColors.setTipusMetallPostTransició(ElementsColors.getTipusDefault());
+
+        }
 
     }
 

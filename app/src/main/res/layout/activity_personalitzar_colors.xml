@@ -16,6 +16,16 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btnAplicar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:text="Aplicar colors"
+                android:textColor="#000000"
+                app:icon="@drawable/ic_check"
+                app:iconTint="#000000" />
+
             <TextView
                 android:id="@+id/txtTitolColorEstat"
                 android:layout_width="match_parent"
@@ -564,6 +574,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="30px" />
+
+            <Button
+                android:id="@+id/btnAplicar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:text="Aplicar colors"
+                android:textColor="#000000"
+                app:icon="@drawable/ic_check"
+                app:iconTint="#000000" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
