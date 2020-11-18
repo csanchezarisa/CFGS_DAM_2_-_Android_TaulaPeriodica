@@ -1,9 +1,13 @@
 package com.example.taulaperidica.personalitzar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
@@ -72,7 +76,7 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
                 return true;
 
             case R.id.restablir:
-                restablirColors();
+                mostrarAvisRestablirPersonalitzacio();
                 return true;
 
         }
@@ -391,5 +395,32 @@ public class ActivityPersonalitzarColors extends AppCompatActivity {
         ElementsColors.restablirColors();
         personalitzarEditText();
         personalitzarMostraColors();
+    }
+
+    private void mostrarAvisRestablirPersonalitzacio() {
+
+        AlertDialog alerta = new AlertDialog.Builder(this).create();
+
+        alerta.setTitle("RESTABLIR COLORS");
+        alerta.setMessage("Es restabliran els colors de l'aplicació.\nEstas segur?");
+
+        alerta.setButton(AlertDialog.BUTTON_POSITIVE, "Acceptar", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Restableix els colors personalitzats
+                restablirColors();
+            }
+        });
+
+        alerta.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // No fa res, tanca l'alerta
+            }
+        });
+
+        alerta.show();
+
     }
 }
