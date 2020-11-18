@@ -200,6 +200,8 @@ public class ActivityGame extends AppCompatActivity {
         // Es crea un bundle amb les puntuacions màximes que s'han obtingut
         Bundle puntuacions = new Bundle();
         puntuacions.putIntArray("puntuacionsMaximes", puntuacionsMaximes);
+        puntuacions.putInt("partidesGuanyades", partidesGuanyades);
+        puntuacions.putInt("partidesJugades", partidesJugades);
 
         // Es crea un intent i les puntuacions màximes
         Intent intent = new Intent();

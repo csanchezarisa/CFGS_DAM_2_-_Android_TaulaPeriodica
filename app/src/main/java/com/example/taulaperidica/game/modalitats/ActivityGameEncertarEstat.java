@@ -66,12 +66,35 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
         // Recupera un element de manera random i mostra el seu símbol
         generaSimbol();
 
-        // Listener pel botó d'acceptar
-        Button btnAcceptar = (Button) findViewById(R.id.btnAcceptar);
-        btnAcceptar.setOnClickListener(new View.OnClickListener() {
+        // Es cerquen els botons del layout
+        Button btnSolid = (Button) findViewById(R.id.btnSolid);
+        Button btnLiquid = (Button) findViewById(R.id.btnLiquid);
+        Button btnSintetic = (Button) findViewById(R.id.btnSintetic);
+        Button btnGas = (Button) findViewById(R.id.btnGas);
+
+        // Es creen els listeners
+        btnSolid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comprovarResultat();
+                comprovarResultat("Sòlid");
+            }
+        });
+        btnLiquid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprovarResultat("Líquid");
+            }
+        });
+        btnGas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprovarResultat("Gas");
+            }
+        });
+        btnSintetic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprovarResultat("Sintètic");
             }
         });
 
@@ -128,38 +151,27 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
     }
 
     // Comprova si el l'element introduit dins del dialog és el mateix que el que s'està mostrant
-    private void comprovarResultat() {
-        EditText input = (EditText) findViewById(R.id.edtEstatElement);
+    private void comprovarResultat(String estatSeleccionat) {
 
-        if (input.getText().toString().length() > 0) {
-
-            if (input.getText().toString().equalsIgnoreCase(estatElementActual)) {
-                partidesJugades ++;
-                partidesGuanyades ++;
-                puntuacio ++;
-                setPuntuacions();
-                snackbarEncertat();
-                generaSimbol();
-            }
-            else {
-
-                if (puntuacio > puntuacioMaxima)
-                    puntuacioMaxima = puntuacio;
-
-                partidesJugades ++;
-                puntuacio = 0;
-                setPuntuacions();
-                alertError();
-                generaSimbol();
-            }
-
+        if (estatSeleccionat.equalsIgnoreCase(estatElementActual)) {
+            partidesJugades ++;
+            partidesGuanyades ++;
+            puntuacio ++;
+            setPuntuacions();
+            snackbarEncertat();
+            generaSimbol();
         }
         else {
-            snackbarDialogBuit();
-        }
 
-        input.setText("");
-        input.clearFocus();
+            if (puntuacio > puntuacioMaxima)
+                puntuacioMaxima = puntuacio;
+
+            partidesJugades ++;
+            puntuacio = 0;
+            setPuntuacions();
+            alertError();
+            generaSimbol();
+        }
 
     }
 
@@ -174,21 +186,6 @@ public class ActivityGameEncertarEstat extends AppCompatActivity {
         FrameLayout.LayoutParams params =(FrameLayout.LayoutParams) viewSnack.getLayoutParams();
         params.gravity = Gravity.TOP;
         viewSnack.setLayoutParams(params);
-
-        snack.show();
-    }
-
-    // Mostra un snackbar en la part superior avisant que s'ha d'omplenar l'editText
-    private void snackbarDialogBuit() {
-        View parentLayout = findViewById(android.R.id.content);
-        Snackbar snack = Snackbar.make(parentLayout, Html.fromHtml("<font color=\"black\">INTRODUEIX UN ESTAT!</font>"), Snackbar.LENGTH_LONG);
-
-        // Forzamos el TOP
-        View viewSnack = snack.getView();
-        FrameLayout.LayoutParams params =(FrameLayout.LayoutParams) viewSnack.getLayoutParams();
-        params.gravity = Gravity.TOP;
-        viewSnack.setLayoutParams(params);
-        viewSnack.setBackgroundColor(Color.RED);
 
         snack.show();
     }

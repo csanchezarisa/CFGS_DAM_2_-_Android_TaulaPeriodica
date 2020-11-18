@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPregunta" />
 
     <Button
-        android:id="@+id/btnAcceptar"
+        android:id="@+id/btnSolid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30px"
@@ -64,7 +64,7 @@
         android:text="Puntuació actual:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAcceptar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSolid" />
 
     <TextView
         android:id="@+id/txtPuntuacioMaxima"

@@ -25,36 +25,73 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="100px"
-        android:text="Introdueix l'estat de l'element:"
+        android:text="Selecciona l'estat de l'element:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNomElement" />
 
-    <EditText
-        android:id="@+id/edtEstatElement"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="100px"
-        android:ems="10"
-        android:hint="Estat de l'element"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPregunta" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/txtPregunta">
 
-    <Button
-        android:id="@+id/btnAcceptar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30px"
-        android:layout_weight="1"
-        android:text="Acceptar"
-        android:textColor="#000000"
-        app:icon="@drawable/ic_check"
-        app:iconTint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEstatElement" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSolid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30px"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Sòlid"
+                android:textColor="#000000"
+                app:iconTint="#000000" />
+
+            <Button
+                android:id="@+id/btnLiquid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30px"
+                android:layout_weight="1"
+                android:text="Líquid"
+                android:textColor="#000000"
+                app:iconTint="#000000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSintetic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30px"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Sintètic"
+                android:textColor="#000000"
+                app:iconTint="#000000" />
+
+            <Button
+                android:id="@+id/btnGas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30px"
+                android:layout_weight="1"
+                android:text="Gas"
+                android:textColor="#000000"
+                app:iconTint="#000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/txtPuntuacioActual"
@@ -64,7 +101,7 @@
         android:text="Puntuació actual:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAcceptar" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/txtPuntuacioMaxima"

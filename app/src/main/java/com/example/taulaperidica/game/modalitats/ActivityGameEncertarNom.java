@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.taulaperidica.R;
 import com.example.taulaperidica.elements.Element;
@@ -62,7 +61,7 @@ public class ActivityGameEncertarNom extends AppCompatActivity {
         generaSimbol();
 
         // Listener pel botó d'acceptar
-        Button btnAcceptar = (Button) findViewById(R.id.btnAcceptar);
+        Button btnAcceptar = (Button) findViewById(R.id.btnSolid);
         btnAcceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
